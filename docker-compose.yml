@@ -7,7 +7,7 @@ services:
       - "5433:5432"
     restart: always
     environment:
-      POSTGRES_DB: postgres_audio_db
+      POSTGRES_DB: pg_audio_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
@@ -29,6 +29,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    command: bash -c "python database.py & python app.py"
 
 volumes:
   db-data:

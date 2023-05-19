@@ -8,6 +8,4 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "database.py"]
-
 CMD ["python", "app.py"]
